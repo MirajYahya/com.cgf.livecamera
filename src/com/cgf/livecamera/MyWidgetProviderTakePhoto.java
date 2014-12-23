@@ -1,5 +1,7 @@
 package com.cgf.livecamera;
 
+import com.cgf.livecamera.activity.MyDebug;
+
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;

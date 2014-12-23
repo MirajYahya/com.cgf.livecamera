@@ -19,6 +19,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 
+import com.cgf.livecamera.activity.MainActivity;
+import com.cgf.livecamera.activity.MyDebug;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;

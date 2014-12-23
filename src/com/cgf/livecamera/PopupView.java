@@ -6,6 +6,9 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
+import com.cgf.livecamera.activity.MainActivity;
+import com.cgf.livecamera.activity.MyDebug;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
