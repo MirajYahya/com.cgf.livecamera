@@ -2,10 +2,10 @@ package com.cgf.livecamera.activity;
 
 import com.cgf.livecamera.R.id;
 import com.cgf.livecamera.R.layout;
-import com.cgf.onehitoneerror.R;
-import com.cgf.onehitoneerror.utility.Adware;
-import com.cgf.onehitoneerror.utility.Bgm;
-import com.cgf.onehitoneerror.utility.Sound;
+import com.cgf.livecamera.R;
+import com.cgf.livecamera.utility.Adware;
+import com.cgf.livecamera.utility.Bgm;
+import com.cgf.livecamera.utility.Sound;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -39,34 +39,34 @@ public class SplashActivity extends Activity implements OnClickListener{
 		this.ib = (ImageButton)findViewById(R.id.imageButton1);
 		this.ib.setOnClickListener(this);
 
-		bgm = Bgm.getInstance(getApplicationContext());
+//		bgm = Bgm.getInstance(getApplicationContext());
 		sound = Sound.getInstance(getApplicationContext());
 	}
 		
 	@Override
 	public void onClick(View v) {
-		sound.start(1);
-		Intent intent = new Intent(SplashActivity.this, ModeSelect.class);
+//		sound.start(1);
+		Intent intent = new Intent(SplashActivity.this, com.cgf.livecamera.MainActivity.class);
 		startActivity(intent);
 	}
 	
 	@Override
 	public void onResume(){
-		this.ad = new Adware(this, (LinearLayout)findViewById(R.id.linearLayoutAd));
-		this.ad.create();
-		bgm.resetStart();
+//		this.ad = new Adware(this, (LinearLayout)findViewById(R.id.linearLayoutAd));
+//		this.ad.create();
+//		bgm.resetStart();
 		super.onResume();
 	}
 	
 	@Override
 	public void onPause(){
-		bgm.pause();
+//		bgm.pause();
 		super.onPause();
 	}
 
 	@Override
 	protected void onStop() {
 		super.onStop();
-		this.ad.destory();
+//		this.ad.destory();
 	}
 }

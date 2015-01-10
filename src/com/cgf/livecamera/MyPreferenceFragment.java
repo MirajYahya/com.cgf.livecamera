@@ -1,7 +1,5 @@
 package com.cgf.livecamera;
 
-import com.cgf.livecamera.activity.MainActivity;
-import com.cgf.livecamera.activity.MyDebug;
 
 import android.app.Activity;
 import android.app.ActivityManager;

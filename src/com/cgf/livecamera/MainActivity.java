@@ -1,4 +1,4 @@
-package com.cgf.livecamera.activity;
+package com.cgf.livecamera;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,14 +10,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import com.cgf.livecamera.CameraController;
-import com.cgf.livecamera.MyPreferenceFragment;
-import com.cgf.livecamera.PopupView;
-import com.cgf.livecamera.Preview;
 import com.cgf.livecamera.R;
-import com.cgf.livecamera.TakePhoto;
-import com.cgf.livecamera.ToastBoxer;
-import com.cgf.livecamera.CameraController.Size;
 import com.cgf.livecamera.R.array;
 import com.cgf.livecamera.R.drawable;
 import com.cgf.livecamera.R.id;

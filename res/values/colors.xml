@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<drawable name="transparent_background">#00000000</drawable>
+	<drawable name="transparent_number">#80000000</drawable>
+	<drawable name="color_default_background">#FFECF0F1</drawable>
+	<drawable name="color_result_background">#C0ECF0F1</drawable>
+	<drawable name="color_pomegranete">#FFC1392D</drawable>
+	<drawable name="color_pumpkin">#FFD45300</drawable>
+	<drawable name="color_orange">#FFF39D13</drawable>
+	<drawable name="color_midnightblue">#FF2D3E50</drawable>
+	<drawable name="color_concrete">#FF95A5A5</drawable>
+	<drawable name="color_nephritis">#FF27AE61</drawable>
+	<drawable name="color_wetasphalt">#FF5D6E7E</drawable>
+</resources>

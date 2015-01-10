@@ -61,6 +61,15 @@ public final class R {
         public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
+        public static final int color_concrete=0x7f02002d;
+        public static final int color_default_background=0x7f020027;
+        public static final int color_midnightblue=0x7f02002c;
+        public static final int color_nephritis=0x7f02002e;
+        public static final int color_orange=0x7f02002b;
+        public static final int color_pomegranete=0x7f020029;
+        public static final int color_pumpkin=0x7f02002a;
+        public static final int color_result_background=0x7f020028;
+        public static final int color_wetasphalt=0x7f02002f;
         public static final int earth=0x7f020000;
         public static final int earth_off=0x7f020001;
         public static final int exposure=0x7f020002;
@@ -78,29 +87,37 @@ public final class R {
         public static final int focus_mode_infinity=0x7f02000e;
         public static final int focus_mode_macro=0x7f02000f;
         public static final int focus_mode_manual=0x7f020010;
-        public static final int gallery=0x7f020011;
-        public static final int ic_launcher=0x7f020012;
-        public static final int ic_launcher_take_photo=0x7f020013;
-        public static final int popup=0x7f020014;
-        public static final int popup_flash_auto=0x7f020015;
-        public static final int popup_flash_on=0x7f020016;
-        public static final int settings=0x7f020017;
-        public static final int share=0x7f020018;
-        public static final int switch_camera=0x7f020019;
-        public static final int switch_video=0x7f02001a;
-        public static final int take_photo=0x7f02001b;
-        public static final int take_photo_pressed=0x7f02001c;
-        public static final int take_photo_selector=0x7f02001d;
-        public static final int take_video=0x7f02001e;
-        public static final int take_video_pressed=0x7f02001f;
-        public static final int take_video_selector=0x7f020020;
-        public static final int trash=0x7f020021;
+        public static final int focused_icon_start=0x7f020011;
+        public static final int gallery=0x7f020012;
+        public static final int ic_launcher=0x7f020013;
+        public static final int ic_launcher_take_photo=0x7f020014;
+        public static final int popup=0x7f020015;
+        public static final int popup_flash_auto=0x7f020016;
+        public static final int popup_flash_on=0x7f020017;
+        public static final int pressed_icon_start=0x7f020018;
+        public static final int settings=0x7f020019;
+        public static final int share=0x7f02001a;
+        public static final int style_start=0x7f02001b;
+        public static final int switch_camera=0x7f02001c;
+        public static final int switch_video=0x7f02001d;
+        public static final int take_photo=0x7f02001e;
+        public static final int take_photo_pressed=0x7f02001f;
+        public static final int take_photo_selector=0x7f020020;
+        public static final int take_video=0x7f020021;
+        public static final int take_video_pressed=0x7f020022;
+        public static final int take_video_selector=0x7f020023;
+        public static final int transparent_background=0x7f020025;
+        public static final int transparent_number=0x7f020026;
+        public static final int trash=0x7f020024;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0014;
+        public static final int action_settings=0x7f0a001c;
         public static final int exposure=0x7f0a0008;
         public static final int exposure_lock=0x7f0a0007;
         public static final int gallery=0x7f0a0006;
+        public static final int imageButton1=0x7f0a0017;
+        public static final int linearLayout1=0x7f0a0012;
+        public static final int linearLayoutAd=0x7f0a0019;
         public static final int locker=0x7f0a0010;
         public static final int popup=0x7f0a0005;
         public static final int popup_container=0x7f0a0011;
@@ -113,16 +130,22 @@ public final class R {
         public static final int switch_camera=0x7f0a000a;
         public static final int switch_video=0x7f0a0009;
         public static final int take_photo=0x7f0a0001;
+        public static final int textView1=0x7f0a0014;
+        public static final int textView2=0x7f0a0013;
+        public static final int textView3=0x7f0a0015;
+        public static final int textView4=0x7f0a0018;
+        public static final int textView5=0x7f0a0016;
         public static final int trash=0x7f0a000b;
-        public static final int widget_launch_open_camera=0x7f0a0012;
-        public static final int widget_take_photo=0x7f0a0013;
+        public static final int widget_launch_open_camera=0x7f0a001a;
+        public static final int widget_take_photo=0x7f0a001b;
         public static final int zoom=0x7f0a0002;
         public static final int zoom_seekbar=0x7f0a0003;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int widget_layout=0x7f030001;
-        public static final int widget_layout_take_photo=0x7f030002;
+        public static final int activity_splash=0x7f030001;
+        public static final int widget_layout=0x7f030002;
+        public static final int widget_layout_take_photo=0x7f030003;
     }
     public static final class menu {
         public static final int main=0x7f090000;

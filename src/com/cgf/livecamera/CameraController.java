@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import com.cgf.livecamera.activity.MyDebug;
 
 import android.annotation.TargetApi;
 import android.graphics.Rect;
