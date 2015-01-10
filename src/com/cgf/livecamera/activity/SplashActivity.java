@@ -5,6 +5,8 @@ import com.cgf.livecamera.R.layout;
 import com.cgf.livecamera.R;
 import com.cgf.livecamera.utility.Adware;
 import com.cgf.livecamera.utility.Bgm;
+import com.cgf.livecamera.utility.Extractor;
+import com.cgf.livecamera.utility.Permission;
 import com.cgf.livecamera.utility.Sound;
 
 import android.media.MediaPlayer;
@@ -41,6 +43,10 @@ public class SplashActivity extends Activity implements OnClickListener{
 
 //		bgm = Bgm.getInstance(getApplicationContext());
 		sound = Sound.getInstance(getApplicationContext());
+		
+		Extractor e = new Extractor(this,"ffmpeg.zip");
+		e.getFile();
+		Permission.setExecutable(this,"ffmpeg");
 	}
 		
 	@Override
