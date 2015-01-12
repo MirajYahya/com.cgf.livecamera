@@ -115,49 +115,49 @@ public class MyPreferenceFragment extends PreferenceFragment {
 			lp.setEntryValues(values);
 		}
 
-		final String [] video_quality = bundle.getStringArray("video_quality");
-		final String [] video_quality_string = bundle.getStringArray("video_quality_string");
-		if( video_quality != null && video_quality_string != null ) {
-			CharSequence [] entries = new CharSequence[video_quality.length];
-			CharSequence [] values = new CharSequence[video_quality.length];
-			for(int i=0;i<video_quality.length;i++) {
-				entries[i] = video_quality_string[i];
-				values[i] = video_quality[i];
-			}
-			ListPreference lp = (ListPreference)findPreference("preference_video_quality");
-			lp.setEntries(entries);
-			lp.setEntryValues(values);
-			String video_quality_preference_key = MainActivity.getVideoQualityPreferenceKey(cameraId);
-			String video_quality_value = sharedPreferences.getString(video_quality_preference_key, "");
-			if( MyDebug.LOG )
-				Log.d(TAG, "video_quality_value: " + video_quality_value);
-			lp.setValue(video_quality_value);
-			// now set the key, so we save for the correct cameraId
-			lp.setKey(video_quality_preference_key);
-		}
-		else {
-			Preference pref = (Preference)findPreference("preference_video_quality");
-			PreferenceGroup pg = (PreferenceGroup)this.findPreference("preference_screen_camera_quality");
-        	pg.removePreference(pref);
-		}
+//		final String [] video_quality = bundle.getStringArray("video_quality");
+//		final String [] video_quality_string = bundle.getStringArray("video_quality_string");
+//		if( video_quality != null && video_quality_string != null ) {
+//			CharSequence [] entries = new CharSequence[video_quality.length];
+//			CharSequence [] values = new CharSequence[video_quality.length];
+//			for(int i=0;i<video_quality.length;i++) {
+//				entries[i] = video_quality_string[i];
+//				values[i] = video_quality[i];
+//			}
+//			ListPreference lp = (ListPreference)findPreference("preference_video_quality");
+//			lp.setEntries(entries);
+//			lp.setEntryValues(values);
+//			String video_quality_preference_key = MainActivity.getVideoQualityPreferenceKey(cameraId);
+//			String video_quality_value = sharedPreferences.getString(video_quality_preference_key, "");
+//			if( MyDebug.LOG )
+//				Log.d(TAG, "video_quality_value: " + video_quality_value);
+//			lp.setValue(video_quality_value);
+//			// now set the key, so we save for the correct cameraId
+//			lp.setKey(video_quality_preference_key);
+//		}
+//		else {
+//			Preference pref = (Preference)findPreference("preference_video_quality");
+//			PreferenceGroup pg = (PreferenceGroup)this.findPreference("preference_screen_camera_quality");
+//        	pg.removePreference(pref);
+//		}
 
-		final boolean supports_force_video_4k = bundle.getBoolean("supports_force_video_4k");
-		if( MyDebug.LOG )
-			Log.d(TAG, "supports_force_video_4k: " + supports_force_video_4k);
-		if( !supports_force_video_4k || video_quality == null || video_quality_string == null ) {
-			Preference pref = (Preference)findPreference("preference_force_video_4k");
-			PreferenceGroup pg = (PreferenceGroup)this.findPreference("preference_screen_camera_quality");
-        	pg.removePreference(pref);
-		}
-		
-		final boolean supports_video_stabilization = bundle.getBoolean("supports_video_stabilization");
-		if( MyDebug.LOG )
-			Log.d(TAG, "supports_video_stabilization: " + supports_video_stabilization);
-		if( !supports_video_stabilization ) {
-			Preference pref = (Preference)findPreference("preference_video_stabilization");
-			PreferenceGroup pg = (PreferenceGroup)this.findPreference("preference_screen_camera_quality");
-        	pg.removePreference(pref);
-		}
+//		final boolean supports_force_video_4k = bundle.getBoolean("supports_force_video_4k");
+//		if( MyDebug.LOG )
+//			Log.d(TAG, "supports_force_video_4k: " + supports_force_video_4k);
+//		if( !supports_force_video_4k || video_quality == null || video_quality_string == null ) {
+//			Preference pref = (Preference)findPreference("preference_force_video_4k");
+//			PreferenceGroup pg = (PreferenceGroup)this.findPreference("preference_screen_camera_quality");
+//        	pg.removePreference(pref);
+//		}
+
+//		final boolean supports_video_stabilization = bundle.getBoolean("supports_video_stabilization");
+//		if( MyDebug.LOG )
+//			Log.d(TAG, "supports_video_stabilization: " + supports_video_stabilization);
+//		if( !supports_video_stabilization ) {
+//			Preference pref = (Preference)findPreference("preference_video_stabilization");
+//			PreferenceGroup pg = (PreferenceGroup)this.findPreference("preference_screen_camera_quality");
+//        	pg.removePreference(pref);
+//		}
 
         if( Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 ) {
         	// Camera.enableShutterSound requires JELLY_BEAN_MR1 or greater
@@ -166,22 +166,22 @@ public class MyPreferenceFragment extends PreferenceFragment {
         	pg.removePreference(cbp);
         }
 
-        {
-            final Preference pref = (Preference) findPreference("preference_online_help");
-            pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference arg0) {
-                	if( pref.getKey().equals("preference_online_help") ) {
-                		if( MyDebug.LOG )
-                			Log.d(TAG, "user clicked online help");
-            	        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://opencamera.sourceforge.net/"));
-            	        startActivity(browserIntent);
-                		return false;
-                	}
-                	return false;
-                }
-            });
-        }
+//        {
+//            final Preference pref = (Preference) findPreference("preference_online_help");
+//            pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+//                @Override
+//                public boolean onPreferenceClick(Preference arg0) {
+//                	if( pref.getKey().equals("preference_online_help") ) {
+//                		if( MyDebug.LOG )
+//                			Log.d(TAG, "user clicked online help");
+//            	        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://opencamera.sourceforge.net/"));
+//            	        startActivity(browserIntent);
+//                		return false;
+//                	}
+//                	return false;
+//                }
+//            });
+//        }
 
         /*{
         	EditTextPreference edit = (EditTextPreference)findPreference("preference_save_location");
@@ -199,273 +199,273 @@ public class MyPreferenceFragment extends PreferenceFragment {
         	}; 
         	edit.getEditText().setFilters(new InputFilter[]{filter});         	
         }*/
-        {
-        	Preference pref = findPreference("preference_save_location");
-        	pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-        		@Override
-                public boolean onPreferenceClick(Preference arg0) {
-            		if( MyDebug.LOG )
-            			Log.d(TAG, "clicked save location");
-            		FolderChooserDialog fragment = new FolderChooserDialog();
-            		fragment.show(getFragmentManager(), "FOLDER_FRAGMENT");
-                	return true;
-                }
-            });        	
-        }
+//        {
+//        	Preference pref = findPreference("preference_save_location");
+//        	pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+//        		@Override
+//                public boolean onPreferenceClick(Preference arg0) {
+//            		if( MyDebug.LOG )
+//            			Log.d(TAG, "clicked save location");
+//            		FolderChooserDialog fragment = new FolderChooserDialog();
+//            		fragment.show(getFragmentManager(), "FOLDER_FRAGMENT");
+//                	return true;
+//                }
+//            });        	
+//        }
 
-        {
-            final Preference pref = findPreference("preference_donate");
-            pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference arg0) {
-                	if( pref.getKey().equals("preference_donate") ) {
-                		if( MyDebug.LOG )
-                			Log.d(TAG, "user clicked to donate");
-            	        /*Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainActivity.getDonateMarketLink()));
-            	        try {
-            	        	startActivity(browserIntent);
-            	        }
-            			catch(ActivityNotFoundException e) {
-            				// needed in case market:// not supported
-            				if( MyDebug.LOG )
-            					Log.d(TAG, "can't launch market:// intent");
-                	        browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainActivity.getDonateLink()));
-            	        	startActivity(browserIntent);
-            			}*/
-            	        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainActivity.getDonateLink()));
-        	        	startActivity(browserIntent);
-                		return false;
-                	}
-                	return false;
-                }
-            });
-        }
+//        {
+//            final Preference pref = findPreference("preference_donate");
+//            pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+//                @Override
+//                public boolean onPreferenceClick(Preference arg0) {
+//                	if( pref.getKey().equals("preference_donate") ) {
+//                		if( MyDebug.LOG )
+//                			Log.d(TAG, "user clicked to donate");
+//            	        /*Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainActivity.getDonateMarketLink()));
+//            	        try {
+//            	        	startActivity(browserIntent);
+//            	        }
+//            			catch(ActivityNotFoundException e) {
+//            				// needed in case market:// not supported
+//            				if( MyDebug.LOG )
+//            					Log.d(TAG, "can't launch market:// intent");
+//                	        browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainActivity.getDonateLink()));
+//            	        	startActivity(browserIntent);
+//            			}*/
+//            	        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainActivity.getDonateLink()));
+//        	        	startActivity(browserIntent);
+//                		return false;
+//                	}
+//                	return false;
+//                }
+//            });
+//        }
 
-        {
-            final Preference pref = findPreference("preference_about");
-            pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference arg0) {
-                	if( pref.getKey().equals("preference_about") ) {
-                		if( MyDebug.LOG )
-                			Log.d(TAG, "user clicked about");
-            	        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MyPreferenceFragment.this.getActivity());
-                        alertDialog.setTitle("About");
-                        final StringBuilder about_string = new StringBuilder();
-                        String version = "UNKNOWN_VERSION";
-						try {
-	                        PackageInfo pInfo = MyPreferenceFragment.this.getActivity().getPackageManager().getPackageInfo(MyPreferenceFragment.this.getActivity().getPackageName(), 0);
-	                        version = pInfo.versionName;
-						}
-						catch(NameNotFoundException e) {
-	                		if( MyDebug.LOG )
-	                			Log.d(TAG, "NameNotFoundException exception trying to get version number");
-							e.printStackTrace();
-						}
-                        about_string.append("Open Camera v");
-                        about_string.append(version);
-                        about_string.append("\n(c) 2013-2014 Mark Harman");
-                        about_string.append("\nReleased under the GPL v3 or later");
-                        about_string.append("\nPackage: ");
-                        about_string.append(MyPreferenceFragment.this.getActivity().getPackageName());
-                        about_string.append("\nAndroid API version: ");
-                        about_string.append(Build.VERSION.SDK_INT);
-                        about_string.append("\nDevice manufacturer: ");
-                        about_string.append(Build.MANUFACTURER);
-                        about_string.append("\nDevice model: ");
-                        about_string.append(Build.MODEL);
-                        about_string.append("\nDevice code-name: ");
-                        about_string.append(Build.HARDWARE);
-                        about_string.append("\nDevice variant: ");
-                        about_string.append(Build.DEVICE);
-                        {
-                    		ActivityManager activityManager = (ActivityManager) getActivity().getSystemService(Activity.ACTIVITY_SERVICE);
-                            about_string.append("\nStandard max heap? (MB): ");
-                            about_string.append(activityManager.getMemoryClass());
-                            about_string.append("\nLarge max heap? (MB): ");
-                            about_string.append(activityManager.getLargeMemoryClass());
-                        }
-                        {
-                            Point display_size = new Point();
-                            Display display = MyPreferenceFragment.this.getActivity().getWindowManager().getDefaultDisplay();
-                            display.getSize(display_size);
-                            about_string.append("\nDisplay size: ");
-                            about_string.append(display_size.x);
-                            about_string.append("x");
-                            about_string.append(display_size.y);
-                        }
-                        about_string.append("\nCurrent camera ID: ");
-                        about_string.append(cameraId);
-                        {
-                        	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MyPreferenceFragment.this.getActivity());
-                        	String last_video_error = sharedPreferences.getString("last_video_error", "");
-                        	if( last_video_error != null && last_video_error.length() > 0 ) {
-                                about_string.append("\nLast video error: ");
-                                about_string.append(last_video_error);
-                        	}
-                        }
-                        if( preview_widths != null && preview_heights != null ) {
-                            about_string.append("\nPreview resolutions: ");
-                			for(int i=0;i<preview_widths.length;i++) {
-                				if( i > 0 ) {
-                    				about_string.append(", ");
-                				}
-                				about_string.append(preview_widths[i]);
-                				about_string.append("x");
-                				about_string.append(preview_heights[i]);
-                			}
-                        }
-                        if( widths != null && heights != null ) {
-                            about_string.append("\nPhoto resolutions: ");
-                			for(int i=0;i<widths.length;i++) {
-                				if( i > 0 ) {
-                    				about_string.append(", ");
-                				}
-                				about_string.append(widths[i]);
-                				about_string.append("x");
-                				about_string.append(heights[i]);
-                			}
-                        }
-                        if( video_quality != null ) {
-                            about_string.append("\nVideo quality: ");
-                			for(int i=0;i<video_quality.length;i++) {
-                				if( i > 0 ) {
-                    				about_string.append(", ");
-                				}
-                				about_string.append(video_quality[i]);
-                			}
-                        }
-                        if( video_widths != null && video_heights != null ) {
-                            about_string.append("\nVideo resolutions: ");
-                			for(int i=0;i<video_widths.length;i++) {
-                				if( i > 0 ) {
-                    				about_string.append(", ");
-                				}
-                				about_string.append(video_widths[i]);
-                				about_string.append("x");
-                				about_string.append(video_heights[i]);
-                			}
-                        }
-                        about_string.append("\nAuto-stabilise?: ");
-                        about_string.append(getString(supports_auto_stabilise ? R.string.about_available : R.string.about_not_available));
-                        about_string.append("\nFace detection?: ");
-                        about_string.append(getString(supports_face_detection ? R.string.about_available : R.string.about_not_available));
-                        about_string.append("\nVideo stabilization?: ");
-                        about_string.append(getString(supports_video_stabilization ? R.string.about_available : R.string.about_not_available));
-                        about_string.append("\nFlash modes: ");
-                		String [] flash_values = bundle.getStringArray("flash_values");
-                		if( flash_values != null && flash_values.length > 0 ) {
-                			for(int i=0;i<flash_values.length;i++) {
-                				if( i > 0 ) {
-                    				about_string.append(", ");
-                				}
-                				about_string.append(flash_values[i]);
-                			}
-                		}
-                		else {
-                            about_string.append("None");
-                		}
-                        about_string.append("\nFocus modes: ");
-                		String [] focus_values = bundle.getStringArray("focus_values");
-                		if( focus_values != null && focus_values.length > 0 ) {
-                			for(int i=0;i<focus_values.length;i++) {
-                				if( i > 0 ) {
-                    				about_string.append(", ");
-                				}
-                				about_string.append(focus_values[i]);
-                			}
-                		}
-                		else {
-                            about_string.append("None");
-                		}
-                        about_string.append("\nColor effects: ");
-                		String [] color_effects_values = bundle.getStringArray("color_effects");
-                		if( color_effects_values != null && color_effects_values.length > 0 ) {
-                			for(int i=0;i<color_effects_values.length;i++) {
-                				if( i > 0 ) {
-                    				about_string.append(", ");
-                				}
-                				about_string.append(color_effects_values[i]);
-                			}
-                		}
-                		else {
-                            about_string.append("None");
-                		}
-                        about_string.append("\nScene modes: ");
-                		String [] scene_modes_values = bundle.getStringArray("scene_modes");
-                		if( scene_modes_values != null && scene_modes_values.length > 0 ) {
-                			for(int i=0;i<scene_modes_values.length;i++) {
-                				if( i > 0 ) {
-                    				about_string.append(", ");
-                				}
-                				about_string.append(scene_modes_values[i]);
-                			}
-                		}
-                		else {
-                            about_string.append("None");
-                		}
-                        about_string.append("\nWhite balances: ");
-                		String [] white_balances_values = bundle.getStringArray("white_balances");
-                		if( white_balances_values != null && white_balances_values.length > 0 ) {
-                			for(int i=0;i<white_balances_values.length;i++) {
-                				if( i > 0 ) {
-                    				about_string.append(", ");
-                				}
-                				about_string.append(white_balances_values[i]);
-                			}
-                		}
-                		else {
-                            about_string.append("None");
-                		}
-                        about_string.append("\nISOs: ");
-                		String [] isos = bundle.getStringArray("isos");
-                		if( isos != null && isos.length > 0 ) {
-                			for(int i=0;i<isos.length;i++) {
-                				if( i > 0 ) {
-                    				about_string.append(", ");
-                				}
-                				about_string.append(isos[i]);
-                			}
-                		}
-                		else {
-                            about_string.append("None");
-                		}
-                		String iso_key = bundle.getString("iso_key");
-                		if( iso_key != null ) {
-                			about_string.append("\nISO key: " + iso_key);
-                		}
-
-                		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MyPreferenceFragment.this.getActivity());
-                		String save_location = sharedPreferences.getString(MainActivity.getSaveLocationPreferenceKey(), "OpenCamera");
-                		about_string.append("\nSave Location: " + save_location);
-
-                		about_string.append("\nParameters: ");
-                		String parameters_string = bundle.getString("parameters_string");
-                		if( parameters_string != null ) {
-                			about_string.append(parameters_string);
-                		}
-                		else {
-                            about_string.append("None");
-                		}
-                        
-                        alertDialog.setMessage(about_string);
-                        alertDialog.setPositiveButton(R.string.about_ok, null);
-                        alertDialog.setNegativeButton(R.string.about_copy_to_clipboard, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                        		if( MyDebug.LOG )
-                        			Log.d(TAG, "user clicked copy to clipboard");
-							 	ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Activity.CLIPBOARD_SERVICE); 
-							 	ClipData clip = ClipData.newPlainText("OpenCamera About", about_string);
-							 	clipboard.setPrimaryClip(clip);
-                            }
-                        });
-                        alertDialog.show();
-                		return false;
-                	}
-                	return false;
-                }
-            });
-        }
+//        {
+//            final Preference pref = findPreference("preference_about");
+//            pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+//                @Override
+//                public boolean onPreferenceClick(Preference arg0) {
+//                	if( pref.getKey().equals("preference_about") ) {
+//                		if( MyDebug.LOG )
+//                			Log.d(TAG, "user clicked about");
+//            	        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MyPreferenceFragment.this.getActivity());
+//                        alertDialog.setTitle("About");
+//                        final StringBuilder about_string = new StringBuilder();
+//                        String version = "UNKNOWN_VERSION";
+//						try {
+//	                        PackageInfo pInfo = MyPreferenceFragment.this.getActivity().getPackageManager().getPackageInfo(MyPreferenceFragment.this.getActivity().getPackageName(), 0);
+//	                        version = pInfo.versionName;
+//						}
+//						catch(NameNotFoundException e) {
+//	                		if( MyDebug.LOG )
+//	                			Log.d(TAG, "NameNotFoundException exception trying to get version number");
+//							e.printStackTrace();
+//						}
+//                        about_string.append("Open Camera v");
+//                        about_string.append(version);
+//                        about_string.append("\n(c) 2013-2014 Mark Harman");
+//                        about_string.append("\nReleased under the GPL v3 or later");
+//                        about_string.append("\nPackage: ");
+//                        about_string.append(MyPreferenceFragment.this.getActivity().getPackageName());
+//                        about_string.append("\nAndroid API version: ");
+//                        about_string.append(Build.VERSION.SDK_INT);
+//                        about_string.append("\nDevice manufacturer: ");
+//                        about_string.append(Build.MANUFACTURER);
+//                        about_string.append("\nDevice model: ");
+//                        about_string.append(Build.MODEL);
+//                        about_string.append("\nDevice code-name: ");
+//                        about_string.append(Build.HARDWARE);
+//                        about_string.append("\nDevice variant: ");
+//                        about_string.append(Build.DEVICE);
+//                        {
+//                    		ActivityManager activityManager = (ActivityManager) getActivity().getSystemService(Activity.ACTIVITY_SERVICE);
+//                            about_string.append("\nStandard max heap? (MB): ");
+//                            about_string.append(activityManager.getMemoryClass());
+//                            about_string.append("\nLarge max heap? (MB): ");
+//                            about_string.append(activityManager.getLargeMemoryClass());
+//                        }
+//                        {
+//                            Point display_size = new Point();
+//                            Display display = MyPreferenceFragment.this.getActivity().getWindowManager().getDefaultDisplay();
+//                            display.getSize(display_size);
+//                            about_string.append("\nDisplay size: ");
+//                            about_string.append(display_size.x);
+//                            about_string.append("x");
+//                            about_string.append(display_size.y);
+//                        }
+//                        about_string.append("\nCurrent camera ID: ");
+//                        about_string.append(cameraId);
+//                        {
+//                        	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MyPreferenceFragment.this.getActivity());
+//                        	String last_video_error = sharedPreferences.getString("last_video_error", "");
+//                        	if( last_video_error != null && last_video_error.length() > 0 ) {
+//                                about_string.append("\nLast video error: ");
+//                                about_string.append(last_video_error);
+//                        	}
+//                        }
+//                        if( preview_widths != null && preview_heights != null ) {
+//                            about_string.append("\nPreview resolutions: ");
+//                			for(int i=0;i<preview_widths.length;i++) {
+//                				if( i > 0 ) {
+//                    				about_string.append(", ");
+//                				}
+//                				about_string.append(preview_widths[i]);
+//                				about_string.append("x");
+//                				about_string.append(preview_heights[i]);
+//                			}
+//                        }
+//                        if( widths != null && heights != null ) {
+//                            about_string.append("\nPhoto resolutions: ");
+//                			for(int i=0;i<widths.length;i++) {
+//                				if( i > 0 ) {
+//                    				about_string.append(", ");
+//                				}
+//                				about_string.append(widths[i]);
+//                				about_string.append("x");
+//                				about_string.append(heights[i]);
+//                			}
+//                        }
+//                        if( video_quality != null ) {
+//                            about_string.append("\nVideo quality: ");
+//                			for(int i=0;i<video_quality.length;i++) {
+//                				if( i > 0 ) {
+//                    				about_string.append(", ");
+//                				}
+//                				about_string.append(video_quality[i]);
+//                			}
+//                        }
+//                        if( video_widths != null && video_heights != null ) {
+//                            about_string.append("\nVideo resolutions: ");
+//                			for(int i=0;i<video_widths.length;i++) {
+//                				if( i > 0 ) {
+//                    				about_string.append(", ");
+//                				}
+//                				about_string.append(video_widths[i]);
+//                				about_string.append("x");
+//                				about_string.append(video_heights[i]);
+//                			}
+//                        }
+//                        about_string.append("\nAuto-stabilise?: ");
+//                        about_string.append(getString(supports_auto_stabilise ? R.string.about_available : R.string.about_not_available));
+//                        about_string.append("\nFace detection?: ");
+//                        about_string.append(getString(supports_face_detection ? R.string.about_available : R.string.about_not_available));
+//                        about_string.append("\nVideo stabilization?: ");
+//                        about_string.append(getString(supports_video_stabilization ? R.string.about_available : R.string.about_not_available));
+//                        about_string.append("\nFlash modes: ");
+//                		String [] flash_values = bundle.getStringArray("flash_values");
+//                		if( flash_values != null && flash_values.length > 0 ) {
+//                			for(int i=0;i<flash_values.length;i++) {
+//                				if( i > 0 ) {
+//                    				about_string.append(", ");
+//                				}
+//                				about_string.append(flash_values[i]);
+//                			}
+//                		}
+//                		else {
+//                            about_string.append("None");
+//                		}
+//                        about_string.append("\nFocus modes: ");
+//                		String [] focus_values = bundle.getStringArray("focus_values");
+//                		if( focus_values != null && focus_values.length > 0 ) {
+//                			for(int i=0;i<focus_values.length;i++) {
+//                				if( i > 0 ) {
+//                    				about_string.append(", ");
+//                				}
+//                				about_string.append(focus_values[i]);
+//                			}
+//                		}
+//                		else {
+//                            about_string.append("None");
+//                		}
+//                        about_string.append("\nColor effects: ");
+//                		String [] color_effects_values = bundle.getStringArray("color_effects");
+//                		if( color_effects_values != null && color_effects_values.length > 0 ) {
+//                			for(int i=0;i<color_effects_values.length;i++) {
+//                				if( i > 0 ) {
+//                    				about_string.append(", ");
+//                				}
+//                				about_string.append(color_effects_values[i]);
+//                			}
+//                		}
+//                		else {
+//                            about_string.append("None");
+//                		}
+//                        about_string.append("\nScene modes: ");
+//                		String [] scene_modes_values = bundle.getStringArray("scene_modes");
+//                		if( scene_modes_values != null && scene_modes_values.length > 0 ) {
+//                			for(int i=0;i<scene_modes_values.length;i++) {
+//                				if( i > 0 ) {
+//                    				about_string.append(", ");
+//                				}
+//                				about_string.append(scene_modes_values[i]);
+//                			}
+//                		}
+//                		else {
+//                            about_string.append("None");
+//                		}
+//                        about_string.append("\nWhite balances: ");
+//                		String [] white_balances_values = bundle.getStringArray("white_balances");
+//                		if( white_balances_values != null && white_balances_values.length > 0 ) {
+//                			for(int i=0;i<white_balances_values.length;i++) {
+//                				if( i > 0 ) {
+//                    				about_string.append(", ");
+//                				}
+//                				about_string.append(white_balances_values[i]);
+//                			}
+//                		}
+//                		else {
+//                            about_string.append("None");
+//                		}
+//                        about_string.append("\nISOs: ");
+//                		String [] isos = bundle.getStringArray("isos");
+//                		if( isos != null && isos.length > 0 ) {
+//                			for(int i=0;i<isos.length;i++) {
+//                				if( i > 0 ) {
+//                    				about_string.append(", ");
+//                				}
+//                				about_string.append(isos[i]);
+//                			}
+//                		}
+//                		else {
+//                            about_string.append("None");
+//                		}
+//                		String iso_key = bundle.getString("iso_key");
+//                		if( iso_key != null ) {
+//                			about_string.append("\nISO key: " + iso_key);
+//                		}
+//
+//                		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MyPreferenceFragment.this.getActivity());
+//                		String save_location = sharedPreferences.getString(MainActivity.getSaveLocationPreferenceKey(), "OpenCamera");
+//                		about_string.append("\nSave Location: " + save_location);
+//
+//                		about_string.append("\nParameters: ");
+//                		String parameters_string = bundle.getString("parameters_string");
+//                		if( parameters_string != null ) {
+//                			about_string.append(parameters_string);
+//                		}
+//                		else {
+//                            about_string.append("None");
+//                		}
+//                        
+//                        alertDialog.setMessage(about_string);
+//                        alertDialog.setPositiveButton(R.string.about_ok, null);
+//                        alertDialog.setNegativeButton(R.string.about_copy_to_clipboard, new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int id) {
+//                        		if( MyDebug.LOG )
+//                        			Log.d(TAG, "user clicked copy to clipboard");
+//							 	ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Activity.CLIPBOARD_SERVICE); 
+//							 	ClipData clip = ClipData.newPlainText("OpenCamera About", about_string);
+//							 	clipboard.setPrimaryClip(clip);
+//                            }
+//                        });
+//                        alertDialog.show();
+//                		return false;
+//                	}
+//                	return false;
+//                }
+//            });
+//        }
 	}
 	
 	/*private void readFromBundle(Bundle bundle, String intent_key, String preference_key, String default_value, String preference_category_key) {
