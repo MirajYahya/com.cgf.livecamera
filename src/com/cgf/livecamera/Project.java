@@ -113,6 +113,34 @@ public class Project {
 		return true;
 	}
 	
+	boolean setCurrentContent(Content content){
+		//ìØàÍÉRÉìÉeÉìÉcåüçı
+		int id = searchContent(content);
+		
+		if(id == -1){
+			return false;
+		}
+		
+		SharedPreferences.Editor editor = this.mSharedPreferences.edit();
+		editor.remove(CONTENT_PREFIX + "current" + "_hash");
+		editor.remove(CONTENT_PREFIX + "current" + "_name");
+		editor.remove(CONTENT_PREFIX + "current" + "_fileNumber");
+		editor.remove(CONTENT_PREFIX + "current" + "_foler");
+		editor.remove(CONTENT_PREFIX + "current" + "_date");
+		editor.apply();
+		
+		return true;
+	}
+	
+	Content getCurrentContent(){
+		String hash = this.mSharedPreferences.getString(CONTENT_PREFIX + "current" + "_hash", null);
+		String name = this.mSharedPreferences.getString(CONTENT_PREFIX + "current" + "_name", null);
+		int fileNumber = this.mSharedPreferences.getInt(CONTENT_PREFIX + "current" + "_fileNumber", 0);
+		String folder = this.mSharedPreferences.getString(CONTENT_PREFIX + "current" + "_foler", null);
+		String date = this.mSharedPreferences.getString(CONTENT_PREFIX + "current" + "_date", null);
+		return new Content(hash,name,fileNumber,folder,date);
+	}
+	
 	private int searchContent(Content content){
 		for(int i = 0; i < this.mContentSize; i++){
 			String hash = this.mSharedPreferences.getString(CONTENT_PREFIX + i + "_hash", null);
@@ -179,6 +207,21 @@ public class Project {
 			this.mFileNumber = fileNumber;
 			this.mFolder = folder;
 			this.mDate = date;
+		}
+		String getHash(){
+			return this.mHash;
+		}
+		String getName(){
+			return this.mName;
+		}
+		int getFileNumber(){
+			return this.mFileNumber;
+		}
+		String getFolder(){
+			return this.mFolder;
+		}
+		String getDate(){
+			return this.mDate;
 		}
 	}
 }

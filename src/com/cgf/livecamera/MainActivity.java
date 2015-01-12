@@ -1757,8 +1757,8 @@ public class MainActivity extends Activity {
     public static final int MEDIA_TYPE_VIDEO = 2;
 
     private String getSaveLocation() {
-		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-		String folder_name = sharedPreferences.getString(getSaveLocationPreferenceKey(), "OpenCamera");
+		Project p = new Project(this);
+		String folder_name = p.getCurrentContent().getFolder();
 		return folder_name;
     }
     
